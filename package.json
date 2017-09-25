@@ -1,0 +1,36 @@
+{
+  "name": "gulp-tasks",
+  "version": "0.0.0",
+  "description": "Gulp task loader for Gulp 4.0+",
+  "keywords": [
+    "gulp",
+    "gulp4",
+    "loader",
+    "task"
+  ],
+  "homepage": "https://github.com/ethancfchen/gulp-tasks#readme",
+  "bugs": {
+    "url": "https://github.com/ethancfchen/gulp-tasks/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "ethancfchen",
+    "email": "ethan.cfchen@gmail.com",
+    "url": "https://github.com/ethancfchen"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethancfchen/gulp-tasks.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=7.x"
+  },
+  "devDependencies": {
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-xo-space": "^0.16.0"
+  }
+}

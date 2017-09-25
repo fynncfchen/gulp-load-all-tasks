@@ -1,0 +1,13 @@
+language: node_js
+sudo: false
+node_js:
+- stable
+- v7
+deploy:
+  provider: npm
+  email: ethan.cfchen@gmail.com
+  api_key:
+    secure: jWKDr/0j2Pyf07DPEvzw3Lpx6XkdgOSjO8K6t4bFLTv6YTFgZyhMvBf44Sx+3fDdceTRdLNpayGfuH2DFDRYoUGEB5pjInwpUZXtvSBZQOuU0HTKRHN2yb6yXCDXcg+TZMmR77/LQR9DFHoVwTuGXfyXVu/ab/T/pJFkMR4SQg/1alGmX8iLw6zEr05Q0WYgkYh8W0rxjm1q/wtCm0bp8UewYjQZmKxuMQBaEhFd2uRt+tf17pUPy6yIRuBNrJX/T2JtX5cQfj3TiZkkzxR8gm1Sk/y2F06+jHn/4PbwM9XCOuitmtEd0dM4+rCNpsyMJgDOrg8FxsGG1N8X5ztxj/wKq1N80PXFVB6W4J5RqS1m7Rur9ZfMD+rMFSwJrtQu1ftOunixofN1WQAq42WG6XXC1UTrUhsACx9gujzS79t8dewHC5hUTOs6x0jWEpp0X0EJ6OzjYL8uVMqnjsTBoAPjo0BEH2wUMHyDa3xBdhBuiK8MA370BDXeLO3iEnxorLkxI+PnaRMH+vE85pY9TvsRR6xwuW+1cr4B0stuRGzwFi6aenBQM9pWELSeSg6ve3P9G+1QfLGmT+psATzgjVWGd1xN/QAjj5Srb8sveMf9rxnagB26J7oFBvDoij3MzGB/0EfdPPmKO307dKB8QpPEbh41tbKZsPz8IHuymKw=
+  on:
+    tags: true
+    repo: ethancfchen/gulp-tasks
