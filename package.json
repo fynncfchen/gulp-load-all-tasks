@@ -31,7 +31,6 @@
     "test": "jest --config .jestrc.js --coverage"
   },
   "dependencies": {
-    "gulp": "gulpjs/gulp.git#4.0",
     "gulp-util": "^3.0.8",
     "object-assign": "^4.1.1"
   },
@@ -40,6 +39,7 @@
     "eslint": "^4.7.2",
     "eslint-config-google": "^0.9.1",
     "eslint-config-xo-space": "^0.16.0",
+    "gulp": "gulpjs/gulp.git#4.0",
     "jest": "^21.1.0",
     "jest-cli": "^21.1.0",
     "nsp": "^2.8.0"
