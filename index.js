@@ -1,73 +1,74 @@
 const fs = require('fs');
 const path = require('path');
 const gulp = require('gulp');
+const gutil = require('gulp-util');
 const assign = require('object-assign');
 
-function cleanDir(options) {
-  if (!options.dir) return;
-  options.dir = options.dir
-    .replace(/^\.\//, '')
-    .replace(/\/$/, '');
-}
+const PluginError = gutil.PluginError;
 
-module.exports = function(options) {
+const PLUGIN_NAME = 'gulp-tasks';
+
+function gulpTasks(options) {
   if (typeof options === 'string') {
     options = {dir: options};
   }
 
-  if (options) {
-    cleanDir(options);
+  if (options && options.dir) {
+    options.dir = options.dir
+      .replace(/^\.\//, '')
+      .replace(/\/$/, '');
   }
 
-  const opts = assign({
+  const config = assign({
     dir: 'gulp-tasks',
     exts: Object.keys(require.extensions) || ['.js'],
   }, options);
 
-  function byExtension(fileName) {
-    const extension = path.extname(fileName);
-    return opts.exts.indexOf(extension) !== -1;
-  }
-
-  function stripExtension(fileName) {
-    const extension = path.extname(fileName);
-    return path.basename(fileName, extension);
-  }
-
-  function loadTask(parents, task) {
-    const modulePath = path.join(
-      process.cwd(), opts.dir, parents.join(path.sep) || '', task);
-    const func = require(modulePath);
-    let taskName = stripExtension(task);
-    const context = {
+  function loadTask(parents, taskFile) {
+    const taskPath =
+      path.join(process.cwd(), config.dir,
+        parents.join(path.sep) || '', taskFile);
+    const taskFunction = require(taskPath);
+    const dependencies = taskFunction.dependencies;
+    const taskContext = {
       gulp,
-      opts,
+      context: config,
     };
+    let taskName = path.basename(taskFile, path.extname(taskFile));
 
-    // If subtask -> namespace: "parent:child"
     if (parents.length) {
       taskName = parents.join(':') + ':' + taskName;
     }
 
-    gulp.task(taskName, func.bind(context));
+    if (dependencies instanceof Array) {
+      throw new PluginError(PLUGIN_NAME,
+        'Please define dependencies using ' +
+        '\'gulp.series\' or \'gulp.parallel\'.');
+    }
+
+    if (dependencies) {
+      gulp.task(taskName, dependencies, taskFunction.bind(taskContext));
+    } else {
+      gulp.task(taskName, taskFunction.bind(taskContext));
+    }
   }
 
-  function loadTasks(currentPath) {
-    const file = path.basename(currentPath);
-    const stats = fs.lstatSync(currentPath);
-
-    if (stats.isFile() && byExtension(file)) {
+  function loadTasks(filePath) {
+    const filename = path.basename(filePath);
+    const file = fs.lstatSync(filePath);
+    if (file.isFile() && config.exts.indexOf(path.extname(filename)) !== -1) {
       loadTask(
-        currentPath
-          .split(path.sep)
-          .slice(opts.dir.split(path.sep).length, -1), file);
-    } else if (stats.isDirectory()) {
-      fs.readdirSync(currentPath)
+        filePath.split(path.sep)
+          .slice(config.dir.split(path.sep).length, -1), filename);
+    } else if (file.isDirectory()) {
+      fs.readdirSync(filePath)
         .forEach((subPath) => {
-          loadTasks(path.join(currentPath, subPath));
+          loadTasks(path.join(filePath, subPath));
         });
     }
   }
 
-  loadTasks(opts.dir);
-};
+  loadTasks(config.dir);
+}
+
+module.exports = gulpTasks;
