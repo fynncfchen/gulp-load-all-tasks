@@ -26,7 +26,7 @@
   "scripts": {
     "prepublish": "nsp check",
     "release": "git push && git push --tags",
-    "pretest": "eslint . --fix",
+    "pretest": "eslint -c .eslintrc.js . --fix",
     "test": "jest --config .jestrc.js --coverage"
   },
   "dependencies": {
