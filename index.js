@@ -8,7 +8,7 @@ const PluginError = gutil.PluginError;
 
 const PLUGIN_NAME = 'gulp-load-all-tasks';
 
-function gulpTasks(options) {
+function loadAllTasks(options) {
   if (typeof options === 'string') {
     options = {dir: options};
   }
@@ -71,4 +71,4 @@ function gulpTasks(options) {
   loadTasks(config.dir);
 }
 
-module.exports = gulpTasks;
+module.exports = loadAllTasks;
