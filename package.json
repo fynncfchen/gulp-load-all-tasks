@@ -1,6 +1,6 @@
 {
   "name": "gulp-tasks",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Gulp task loader for Gulp 4.0+",
   "keywords": [
     "gulp",
