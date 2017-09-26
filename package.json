@@ -5,6 +5,7 @@
   "keywords": [
     "gulp",
     "gulp4",
+    "gulpplugin",
     "loader",
     "task"
   ],
