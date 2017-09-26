@@ -56,7 +56,7 @@ function loadAllTasks(options) {
   function loadTasks(filePath) {
     const filename = path.basename(filePath);
     const file = fs.lstatSync(filePath);
-    if (file.isFile() && config.exts.indexOf(path.extname(filename)) !== -1) {
+    if (file.isFile() && config.exts.includes(path.extname(filename))) {
       loadTask(
         filePath.split(path.sep)
           .slice(config.dir.split(path.sep).length, -1), filename);
