@@ -6,7 +6,7 @@ const assign = require('object-assign');
 
 const PluginError = gutil.PluginError;
 
-const PLUGIN_NAME = 'gulp-tasks';
+const PLUGIN_NAME = 'gulp-load-all-tasks';
 
 function gulpTasks(options) {
   if (typeof options === 'string') {

@@ -1,5 +1,5 @@
 {
-  "name": "gulp-tasks",
+  "name": "gulp-load-all-tasks",
   "version": "0.1.0",
   "description": "Gulp task loader for Gulp 4.0+",
   "keywords": [
@@ -8,9 +8,9 @@
     "loader",
     "task"
   ],
-  "homepage": "https://github.com/ethancfchen/gulp-tasks#readme",
+  "homepage": "https://github.com/ethancfchen/gulp-load-all-tasks#readme",
   "bugs": {
-    "url": "https://github.com/ethancfchen/gulp-tasks/issues"
+    "url": "https://github.com/ethancfchen/gulp-load-all-tasks/issues"
   },
   "license": "MIT",
   "author": {
@@ -21,7 +21,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ethancfchen/gulp-tasks.git"
+    "url": "git+https://github.com/ethancfchen/gulp-load-all-tasks.git"
   },
   "scripts": {
     "prepublish": "nsp check",

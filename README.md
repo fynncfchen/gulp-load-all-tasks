@@ -1,4 +1,4 @@
-# gulp-tasks
+# gulp-load-all-tasks
 
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
@@ -47,13 +47,13 @@ Local version 4.0.0-alpha.2
 By NPM:
 
 ```sh
-npm install --save-dev gulp-tasks
+npm install --save-dev gulp-load-all-tasks
 ```
 
 By Yarn:
 
 ```sh
-yarn add --dev gulp-tasks
+yarn add --dev gulp-load-all-tasks
 ```
 
 ## Usage
@@ -105,7 +105,7 @@ module.exports = function() {
 
 ```javascript
 // Load all tasks from default folder 'gulp-tasks'
-require('gulp-tasks')();
+require('gulp-load-all-tasks')();
 
 // Run the task
 gulp.task('default', gulp.series('copy', (done) => {
@@ -130,26 +130,26 @@ module.exports.dependencies = gulp.series('clean');
 #### Load tasks by default folder
 
 ```javascript
-require('gulp-tasks')();
+require('gulp-load-all-tasks')();
 ```
 
 #### Load module by [`gulp-load-plugins`](https://github.com/jackfranklin/gulp-load-plugins)
 
 ```javascript
 const $ = require('gulp-load-plugins')();
-$.tasks();
+$.loadAllTasks();
 ```
 
 #### Load tasks by Different folder name
 
 ```javascript
-require('gulp-tasks')('my-tasks');
+require('gulp-load-all-tasks')('my-tasks');
 ```
 
 #### Load tasks in other extensions
 
 ```javascript
-require('gulp-tasks')({
+require('gulp-load-all-tasks')({
   exts: ['.coffee'],
 });
 ```
@@ -162,7 +162,7 @@ and `context`.
 ```javascript
 // gulpfile.js
 const browserSync = require('browser-sync').create();
-require('gulp-tasks')({
+require('gulp-load-all-tasks')({
   browserSync,
 });
 
@@ -196,11 +196,11 @@ as your gulp task registry.
 
 ```javascript
 const ForwardReference = require('undertaker-forward-reference');
-const gulpTasks = require('gulp-tasks');
+const loadAllTasks = require('gulp-load-all-tasks');
 
 gulp.registry(new ForwardReference());
 
-gulpTasks({
+loadAllTasks({
   // Context...
 });
 ```
@@ -227,14 +227,14 @@ Task file extensions.
 
 MIT © [ethancfchen](https://github.com/ethancfchen)
 
-[npm-image]: https://badge.fury.io/js/gulp-tasks.svg
-[npm-url]: https://npmjs.org/package/gulp-tasks
-[travis-image]: https://travis-ci.org/ethancfchen/gulp-tasks.svg?branch=master
-[travis-url]: https://travis-ci.org/ethancfchen/gulp-tasks
-[daviddm-image]: https://david-dm.org/ethancfchen/gulp-tasks.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/ethancfchen/gulp-tasks
-[coveralls-image]: https://coveralls.io/repos/ethancfchen/gulp-tasks/badge.svg
-[coveralls-url]: https://coveralls.io/r/ethancfchen/gulp-tasks
+[npm-image]: https://badge.fury.io/js/gulp-load-all-tasks.svg
+[npm-url]: https://npmjs.org/package/gulp-load-all-tasks
+[travis-image]: https://travis-ci.org/ethancfchen/gulp-load-all-tasks.svg?branch=master
+[travis-url]: https://travis-ci.org/ethancfchen/gulp-load-all-tasks
+[daviddm-image]: https://david-dm.org/ethancfchen/gulp-load-all-tasks.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/ethancfchen/gulp-load-all-tasks
+[coveralls-image]: https://coveralls.io/repos/ethancfchen/gulp-load-all-tasks/badge.svg
+[coveralls-url]: https://coveralls.io/r/ethancfchen/gulp-load-all-tasks
 
 [gulp4.0]: https://github.com/gulpjs/gulp/tree/4.0/docs/
 [gulp-upgrade]: https://www.liquidlight.co.uk/blog/article/how-do-i-update-to-gulp-4/
