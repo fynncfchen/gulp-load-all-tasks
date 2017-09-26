@@ -21,7 +21,7 @@ function loadAllTasks(options) {
 
   const config = assign({
     dir: 'gulp-tasks',
-    exts: Object.keys(require.extensions) || ['.js'],
+    exts: ['.js'],
   }, options);
 
   function loadTask(parents, taskFile) {

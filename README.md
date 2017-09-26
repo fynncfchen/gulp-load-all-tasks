@@ -219,7 +219,7 @@ Folder path with all task files.
 
 Type: `Array`
 
-Default: keys of `require.extensions`
+Default: \['.js'\]
 
 Task file extensions.
 
