@@ -6,4 +6,7 @@ module.exports = {
     jest: true,
     es6: true,
   },
+  rules: {
+    'require-jsdoc': 0,
+  },
 };
