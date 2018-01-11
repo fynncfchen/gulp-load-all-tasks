@@ -31,8 +31,8 @@
     "test": "jest --config .jestrc.js --coverage"
   },
   "dependencies": {
-    "gulp-util": "^3.0.8",
-    "object-assign": "^4.1.1"
+    "object-assign": "^4.1.1",
+    "plugin-error": "^0.1.2"
   },
   "devDependencies": {
     "coveralls": "^3.0.0",

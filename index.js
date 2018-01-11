@@ -1,10 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const gulp = require('gulp');
-const gutil = require('gulp-util');
 const assign = require('object-assign');
 
-const PluginError = gutil.PluginError;
+const PluginError = require('plugin-error');
 
 const PLUGIN_NAME = 'gulp-load-all-tasks';
 
